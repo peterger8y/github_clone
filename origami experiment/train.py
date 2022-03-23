@@ -16,12 +16,12 @@ import horovod as hvd
 import gin
 
 import numpy as np
-from tqdm import tqdm, trange
+from tqdm import trange
 
 import wandb
 import ds_load
 
-from utils import CTCLabelConverter, Averager, ModelEma, Metric
+from utils import CTCLabelConverter, ModelEma, Metric
 from cnv_model import OrigamiNet, ginM
 from test import validation
 
@@ -105,7 +105,7 @@ def train(opt, AMP, WdB, train_data_path, train_data_list, test_data_path, test_
     print('model loaded and ready!')
 
 
-    if OnceExecWorker: import pprint;[print(k, model.lreszs[k]) for k in sorted(model.lreszs.keys())]
+    if OnceExecWorker: ;[print(k, model.lreszs[k]) for k in sorted(model.lreszs.keys())]
 
     biparams = list(dict(filter(lambda kv: 'bias' in kv[0], model.named_parameters())).values())
     nonbiparams = list(dict(filter(lambda kv: 'bias' not in kv[0], model.named_parameters())).values())

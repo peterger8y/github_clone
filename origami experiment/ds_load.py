@@ -1,21 +1,14 @@
 import numpy as np
 import torch
-from scipy import ndimage
-import scipy.misc
 import skimage
-import os,sys
-import cv2
+import os
 import itertools
 import random
 from skimage import transform as stf
 from PIL import Image
 from torch.utils.data import Dataset
-import imageio
-from math import floor, ceil
-import pickle
 import gin
-from google.colab.patches import cv2_imshow
-from noise import lineup, wavy, slant, noisy, slant2, slant_dim, margin, to_mean, pageup, size_up
+from noise import slant, noisy, margin
 
 
 def RndTform(img,val, boolean):
